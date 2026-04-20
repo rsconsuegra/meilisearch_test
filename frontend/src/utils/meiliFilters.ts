@@ -1,5 +1,7 @@
+import { isValidNumericId } from "./validators";
+
 export function buildIdFilter(id: string): string {
-  if (!/^\d+$/.test(id)) {
+  if (!isValidNumericId(id)) {
     throw new Error("Invalid document ID.");
   }
 

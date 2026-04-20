@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import { searchConfig } from "../../config/searchConfig";
 import { createResetState } from "../../types/navigation";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import styles from "./Header.module.css";
 
 function Header() {
@@ -9,16 +10,19 @@ function Header() {
 
   return (
     <header className={styles.header} data-testid="app-header">
-      <a
-        className={styles.link}
-        href="/"
-        onClick={(e) => {
-          e.preventDefault();
-          navigate("/", { state: createResetState() });
-        }}
-      >
-        {searchConfig.appTitle}
-      </a>
+      <div className={styles.inner}>
+        <a
+          className={styles.link}
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/", { state: createResetState() });
+          }}
+        >
+          {searchConfig.appTitle}
+        </a>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

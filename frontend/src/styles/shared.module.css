@@ -1,0 +1,25 @@
+.detailContainer {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 2.5rem 1rem;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.backButton:hover {
+  opacity: 0.8;
+}

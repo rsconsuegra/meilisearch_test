@@ -1,0 +1,145 @@
+.sidebar {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: none;
+  flex-shrink: 0;
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  width: 240px;
+}
+
+.sidebarOpen {
+  display: block;
+}
+
+.sidebarToggle {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.sidebarToggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filterSection {
+  margin-bottom: 1.5rem;
+}
+
+.filterHeading {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+}
+
+.filterSection :global(.ais-RefinementList-list) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filterSection :global(.ais-RefinementList-item) {
+  align-items: center;
+  border-radius: var(--radius-sm);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+}
+
+.filterSection :global(.ais-RefinementList-checkbox) {
+  accent-color: var(--color-accent);
+  appearance: none;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  cursor: pointer;
+  height: 1rem;
+  margin: 0;
+  position: relative;
+  width: 1rem;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.filterSection :global(.ais-RefinementList-checkbox):checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.filterSection :global(.ais-RefinementList-label) {
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  font-size: 0.8125rem;
+  justify-content: space-between;
+  transition: color 0.15s ease;
+}
+
+.filterSection :global(.ais-RefinementList-label):hover {
+  color: var(--color-text);
+}
+
+.filterSection :global(.ais-RefinementList-count) {
+  color: var(--color-text-secondary);
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.filterSection :global(.ais-RefinementList-item--selected) :global(.ais-RefinementList-label) {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.filterSection :global(.ais-ClearRefinements-button) {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  padding: 0.4rem 0.75rem;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+  width: 100%;
+}
+
+.filterSection :global(.ais-ClearRefinements-button):hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filterSection :global(.ais-ClearRefinements-button--disabled) {
+  cursor: default;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
+  }
+
+  .sidebarOpen {
+    display: block;
+  }
+
+  .sidebarToggle {
+    display: none;
+  }
+}

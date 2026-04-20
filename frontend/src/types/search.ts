@@ -1,5 +1,6 @@
 export interface SearchHit {
   id: string | number;
+  /** Dynamic payload from Meilisearch — field names are defined in searchConfig */
   [key: string]: unknown;
 }
 

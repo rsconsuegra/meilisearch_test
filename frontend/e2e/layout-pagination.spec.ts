@@ -35,7 +35,7 @@ test.describe("US-08: Layout shell with Header and responsive container", () => 
         marginRight: cs.marginRight,
       };
     });
-    expect(styles.maxWidth).toBe("1200px");
+    expect(styles.maxWidth).toBe("1280px");
     expect(styles.marginLeft).toBe(styles.marginRight);
   });
 

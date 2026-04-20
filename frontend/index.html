@@ -4,7 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Searcher</title>
+    <!--
+      Theme initialization — Connascence of Algorithm (CoA) with ThemeToggle.tsx.
+      This inline script MUST mirror the logic in ThemeToggle.tsx:
+        1. Read "searcher-theme" from localStorage
+        2. Fall back to prefers-color-scheme media query
+        3. Default to "dark"
+      If you update ThemeToggle.tsx theme resolution, update this script too.
+    -->
+    <script>
+      (function(){try{var t=localStorage.getItem("searcher-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);return}if(typeof window.matchMedia==="function"&&window.matchMedia("(prefers-color-scheme: light)").matches){document.documentElement.setAttribute("data-theme","light");return}}catch(e){}document.documentElement.setAttribute("data-theme","dark")})();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,5 +1,6 @@
 import { isRouteErrorResponse, useNavigate, useRouteError } from "react-router-dom";
 
+import sharedStyles from "../styles/shared.module.css";
 import styles from "./DetailError.module.css";
 
 function DetailError() {
@@ -13,8 +14,8 @@ function DetailError() {
       : "An unexpected error occurred.";
 
   return (
-    <div className={styles.container}>
-      <button className={styles.backButton} onClick={() => navigate(-1)} type="button">
+    <div className={sharedStyles.detailContainer}>
+      <button className={sharedStyles.backButton} onClick={() => navigate(-1)} type="button">
         ← Back to results
       </button>
       <p className={styles.message}>{message}</p>
