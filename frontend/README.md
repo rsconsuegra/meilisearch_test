@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# Searcher Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + TypeScript search frontend powered by Meilisearch via `react-instantsearch`.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install
+cp .env.example .env   # fill in VITE_MEILISEARCH_API_KEY
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Configuration
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+All UI behavior is driven by `src/config/searchConfig.ts`. See the [root README](../README.md#changing-the-dataset) for details on swapping datasets.
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### Environment variables
+
+| Variable                   | Required | Default        |
+| -------------------------- | -------- | -------------- |
+| `VITE_MEILISEARCH_URL`     | Yes      | —              |
+| `VITE_MEILISEARCH_API_KEY` | Yes      | —              |
+| `VITE_MEILISEARCH_INDEX`   | No       | `movies`       |
+| `VITE_APP_TITLE`           | No       | `Movie Search` |
+| `VITE_HITS_PER_PAGE`       | No       | `12`           |
+
+## Scripts
+
+```bash
+npm run dev            # dev server
+npm run build          # type-check + production build
+npm run lint           # ESLint
+npm run test           # unit tests (92 tests)
+npm run test:watch     # vitest watch mode
+npm run test:e2e       # Playwright e2e
+npm run format         # Prettier format
+npm run format:check   # Prettier check
 ```
+
+## Testing
+
+- **Unit tests**: `npm run test` — 92 tests with Vitest + Testing Library
+- **E2E tests**: `npm run test:e2e` — Playwright specs for search, detail, filters, layout, and pagination
+
+## Pre-commit hooks
+
+Prek hooks run automatically on commit. Install with:
+
+```bash
+npx @j178/prek install
+```
+
+Hooks: Prettier, ESLint, TypeScript check, Vitest, trailing-whitespace, end-of-file-fixer, markdownlint.
