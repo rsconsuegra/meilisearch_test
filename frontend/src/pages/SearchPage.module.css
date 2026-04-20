@@ -1,0 +1,184 @@
+.searchSection {
+  margin: 2rem auto;
+  max-width: 640px;
+}
+
+.searchSection :global(.ais-SearchBox) {
+  display: block;
+}
+
+.searchSection :global(.ais-SearchBox-form) {
+  display: flex;
+}
+
+.searchSection :global(.ais-SearchBox-form)::before {
+  display: block;
+}
+
+.searchSection :global(.ais-SearchBox-input) {
+  appearance: none;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  caret-color: var(--color-accent);
+  color: var(--color-text);
+  flex: 1 1 0%;
+  font-size: 1.125rem;
+  max-width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+}
+
+.searchSection :global(.ais-SearchBox-input):focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  outline: none;
+  padding-left: 1rem;
+}
+
+.searchSection :global(.ais-SearchBox-form):focus-within::before {
+  display: none;
+}
+
+.searchSection :global(.ais-SearchBox-submit),
+.searchSection :global(.ais-SearchBox-reset) {
+  display: none;
+}
+
+.searchLayout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.sidebar {
+  display: none;
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.sidebarOpen {
+  display: block;
+}
+
+.sidebarToggle {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.filterSection {
+  margin-bottom: 1.5rem;
+}
+
+.filterHeading {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.filterSection :global(.ais-RefinementList-list) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filterSection :global(.ais-RefinementList-item) {
+  align-items: center;
+  border-radius: var(--radius-sm);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.filterSection :global(.ais-RefinementList-checkbox) {
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  height: 1rem;
+  margin: 0;
+  width: 1rem;
+}
+
+.filterSection :global(.ais-RefinementList-label) {
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  font-size: 0.875rem;
+  justify-content: space-between;
+}
+
+.filterSection :global(.ais-RefinementList-label):hover {
+  color: var(--color-accent);
+}
+
+.filterSection :global(.ais-RefinementList-count) {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
+.filterSection :global(.ais-RefinementList-item--selected) :global(.ais-RefinementList-label) {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.filterSection :global(.ais-ClearRefinements-button) {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.filterSection :global(.ais-ClearRefinements-button):hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filterSection :global(.ais-ClearRefinements-button--disabled) {
+  cursor: default;
+  display: none;
+}
+
+.sortByWrapper {
+  margin-bottom: 1rem;
+}
+
+.sortByWrapper :global(.ais-SortBy-select) {
+  appearance: none;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
+  }
+
+  .sidebarOpen {
+    display: block;
+  }
+
+  .sidebarToggle {
+    display: none;
+  }
+}

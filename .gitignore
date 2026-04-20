@@ -1,0 +1,10 @@
+.env
+meili_data
+frontend/node_modules
+frontend/.vite
+frontend/.cache
+frontend/dist
+frontend/.env
+frontend/test-results
+movies.json
+.agents

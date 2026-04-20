@@ -1,0 +1,21 @@
+.hitList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hitItem {
+  padding: 0;
+  margin: 0;
+  width: auto;
+}
+
+.emptyState {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  padding: 3rem 0;
+  text-align: center;
+}
