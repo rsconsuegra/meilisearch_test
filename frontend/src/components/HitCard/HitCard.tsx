@@ -30,10 +30,12 @@ function HitCard({ hit }: HitCardProps) {
             <div key={field.key} className={styles.field}>
               <div className={styles.fieldLabel}>{field.label}</div>
               <FieldRenderer
-                value={value}
-                type={field.type}
-                truncate={field.truncate}
+                attribute={field.key}
                 contentClassName={styles.fieldValue}
+                hit={hit}
+                truncate={field.truncate}
+                type={field.type}
+                value={value}
               />
             </div>
           );

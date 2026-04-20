@@ -25,6 +25,7 @@ vi.mock("react-instantsearch", () => ({
     nbPages: 5,
     refine: vi.fn(),
   }),
+  useSearchBox: () => ({ isSearchStalled: false }),
 }));
 
 vi.mock("react-router-dom", async () => {
@@ -45,6 +46,21 @@ describe("SearchPage", () => {
     expect(props.hitsPerPage).toBe(12);
   });
 
+  it("passes attributesToHighlight from config displayFields", () => {
+    render(<SearchPage />);
+    const configure = screen.getByTestId("mock-configure");
+    const props = JSON.parse(configure.dataset.props ?? "{}");
+    expect(props.attributesToHighlight).toContain("overview");
+    expect(props.attributesToHighlight).toContain("genres");
+  });
+
+  it("passes attributesToSnippet for fields with truncate", () => {
+    render(<SearchPage />);
+    const configure = screen.getByTestId("mock-configure");
+    const props = JSON.parse(configure.dataset.props ?? "{}");
+    expect(props.attributesToSnippet).toContain("overview:150");
+  });
+
   it("renders SearchBox", () => {
     render(<SearchPage />);
     expect(screen.getByTestId("mock-searchbox")).toBeInTheDocument();
@@ -58,7 +74,7 @@ describe("SearchPage", () => {
     expect(wrapper!.className).not.toBe("");
   });
 
-  it("renders sidebar aside when filterableFields is non-empty", () => {
+  it("renders sidebar aside via FilterSidebar", () => {
     render(<SearchPage />);
     const aside = document.querySelector("aside");
     expect(aside).not.toBeNull();
@@ -77,13 +93,13 @@ describe("SearchPage", () => {
     expect(main!.className).not.toBe("");
   });
 
-  it("renders sidebar toggle button", () => {
+  it("renders sidebar toggle button via FilterSidebar", () => {
     render(<SearchPage />);
     const toggle = screen.getByRole("button", { name: /filters/i });
     expect(toggle).toBeInTheDocument();
   });
 
-  it("renders one RefinementList per filterableField", () => {
+  it("renders one RefinementList per filterableField via FilterSidebar", () => {
     render(<SearchPage />);
     const refinements = screen.getByTestId("mock-refinement-genres");
     expect(refinements).toBeInTheDocument();

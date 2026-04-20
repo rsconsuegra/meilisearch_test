@@ -2,6 +2,20 @@ import type { SearchHit } from "../types/search";
 import { getField } from "../types/search";
 import { formatDate } from "./formatDate";
 
+export function getExtraFields(
+  doc: SearchHit,
+  titleField: string,
+  imageField: string | null,
+  displayFields: readonly { key: string }[],
+): [string, unknown][] {
+  const configuredKeys = new Set([
+    titleField,
+    ...(imageField ? [imageField] : []),
+    ...displayFields.map((f) => f.key),
+  ]);
+  return Object.entries(doc).filter(([key]) => !configuredKeys.has(key));
+}
+
 export function formatFieldValue(value: unknown, type?: string, truncate?: number): string {
   if (value == null) return "";
 

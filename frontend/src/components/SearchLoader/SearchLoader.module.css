@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.spinner {
+  animation: spin 0.7s linear infinite;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}

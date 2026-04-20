@@ -2,16 +2,13 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import AppLayout from "./components/AppLayout/AppLayout";
+import PageLoader from "./components/PageLoader/PageLoader";
 import { detailLoader } from "./pages/detail/loader";
 import DetailError from "./pages/DetailError";
 
 const SearchPage = lazy(() => import("./pages/SearchPage"));
 const DetailPage = lazy(() => import("./pages/DetailPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
-
-function PageLoader() {
-  return <p>Loading…</p>;
-}
 
 const router = createBrowserRouter([
   {

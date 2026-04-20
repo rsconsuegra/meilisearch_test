@@ -1,21 +1,57 @@
 .hitList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .hitItem {
+  animation: cardEnter 0.4s ease both;
+  display: flex;
   padding: 0;
   margin: 0;
   width: auto;
 }
 
+.hitItem:nth-child(2) {
+  animation-delay: 60ms;
+}
+.hitItem:nth-child(3) {
+  animation-delay: 120ms;
+}
+.hitItem:nth-child(4) {
+  animation-delay: 180ms;
+}
+.hitItem:nth-child(5) {
+  animation-delay: 240ms;
+}
+.hitItem:nth-child(6) {
+  animation-delay: 300ms;
+}
+.hitItem:nth-child(7) {
+  animation-delay: 360ms;
+}
+.hitItem:nth-child(8) {
+  animation-delay: 420ms;
+}
+.hitItem:nth-child(9) {
+  animation-delay: 480ms;
+}
+.hitItem:nth-child(10) {
+  animation-delay: 540ms;
+}
+.hitItem:nth-child(11) {
+  animation-delay: 600ms;
+}
+.hitItem:nth-child(12) {
+  animation-delay: 660ms;
+}
+
 .emptyState {
   color: var(--color-text-secondary);
   font-size: 1rem;
-  padding: 3rem 0;
+  padding: 4rem 0;
   text-align: center;
 }

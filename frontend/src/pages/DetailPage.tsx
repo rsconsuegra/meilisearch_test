@@ -4,8 +4,14 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 
 import FieldRenderer from "../components/FieldRenderer/FieldRenderer";
 import { searchConfig } from "../config/searchConfig";
+import sharedStyles from "../styles/shared.module.css";
 import { getField } from "../types/search";
-import { formatFieldValue, getFieldImage, getFieldTitle } from "../utils/fieldFormatter";
+import {
+  formatFieldValue,
+  getExtraFields,
+  getFieldImage,
+  getFieldTitle,
+} from "../utils/fieldFormatter";
 import { detailLoader } from "./detail/loader";
 import styles from "./DetailPage.module.css";
 
@@ -27,16 +33,16 @@ function DetailPage() {
 
   const container = searchConfig.imageContainers[orientation];
 
-  const configuredKeys = new Set([
+  const extraFields = getExtraFields(
+    doc,
     searchConfig.titleField,
     searchConfig.imageField,
-    ...searchConfig.displayFields.map((f) => f.key),
-  ]);
-  const extraFields = Object.entries(doc).filter(([key]) => !configuredKeys.has(key));
+    searchConfig.displayFields,
+  );
 
   return (
-    <div className={styles.container}>
-      <button className={styles.backButton} onClick={() => navigate(-1)} type="button">
+    <div className={sharedStyles.detailContainer}>
+      <button className={sharedStyles.backButton} onClick={() => navigate(-1)} type="button">
         ← Back to results
       </button>
       {imageUrl && (
@@ -65,9 +71,10 @@ function DetailPage() {
           <section key={field.key} className={styles.section}>
             <h2 className={styles.sectionHeading}>{field.label}</h2>
             <FieldRenderer
-              value={value}
-              type={field.type}
+              attribute={field.key}
               contentClassName={styles.sectionContent}
+              type={field.type}
+              value={value}
             />
           </section>
         );

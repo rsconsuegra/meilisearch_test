@@ -10,6 +10,10 @@ vi.mock("react-router-dom", async () => {
   return { ...actual, useNavigate: vi.fn() };
 });
 
+vi.mock("../../ThemeToggle/ThemeToggle", () => ({
+  default: () => <button type="button">Toggle</button>,
+}));
+
 describe("Header", () => {
   it("renders the app title from searchConfig", () => {
     render(
