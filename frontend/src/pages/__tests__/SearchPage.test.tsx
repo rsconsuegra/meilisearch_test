@@ -121,9 +121,11 @@ describe("SearchPage", () => {
     const sortby = screen.getByTestId("mock-sortby");
     expect(sortby).toBeInTheDocument();
     const items = JSON.parse(sortby.dataset.items ?? "[]");
-    expect(items).toHaveLength(3);
+    expect(items).toHaveLength(5);
     expect(items[0].label).toBe("Relevance");
     expect(items[1].label).toBe("Title (A-Z)");
     expect(items[2].label).toBe("Title (Z-A)");
+    expect(items[3].label).toBe("Newest First");
+    expect(items[4].label).toBe("Oldest First");
   });
 });

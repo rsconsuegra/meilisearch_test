@@ -63,5 +63,7 @@ export const searchConfig: SearchConfig = {
     { label: "Relevance", value: indexName },
     { label: "Title (A-Z)", value: `${indexName}:title:asc` },
     { label: "Title (Z-A)", value: `${indexName}:title:desc` },
+    { label: "Newest First", value: `${indexName}:release_date:desc` },
+    { label: "Oldest First", value: `${indexName}:release_date:asc` },
   ],
 };
