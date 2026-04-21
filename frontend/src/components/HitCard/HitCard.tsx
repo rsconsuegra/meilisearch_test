@@ -19,11 +19,11 @@ function HitCard({ hit }: HitCardProps) {
     <article className={styles.card} data-testid="hit-card">
       <Link className={styles.cardLink} to={`/detail/${hit.id}`}>
         {imageUrl && <img alt={title} className={styles.image} loading="lazy" src={imageUrl} />}
-        <div className={styles.content}>
+        <div className={styles.titleContent}>
           <h2 className={styles.title}>{title}</h2>
         </div>
       </Link>
-      <div className={styles.content}>
+      <div className={styles.fieldsContent}>
         {searchConfig.displayFields.map((field) => {
           const value = getField(hit, field.key);
           return (
